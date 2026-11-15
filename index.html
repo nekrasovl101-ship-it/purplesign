@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PurpleSign</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg:#f6f4fb; --surface:#ffffff; --fg:#17141f; --muted:#6b6577;
+    --line:#e7e2f0; --accent:#8b3df7; --accent-2:#5b2bd6; --accent-soft:#f0e8ff;
+    --ok:#1f9d55;
+    --sans:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    --display:'Space Grotesk','Inter',system-ui,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --bg:#0f0b17; --surface:#181222; --fg:#f3eefb; --muted:#a79fb8;
+    --line:#2a2138; --accent:#b57bff; --accent-2:#9a63ff; --accent-soft:#241a35;
+    --ok:#4ade80; color-scheme:dark;
+  }}
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.55;margin:0;
+    padding-left:max(16px,env(safe-area-inset-left,0px));
+    padding-right:max(16px,env(safe-area-inset-right,0px));}
+  .wrap{max-width:680px;margin:0 auto;padding-block:48px 72px}
+  .hero{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px}
+  .icon{width:108px;height:108px;filter:drop-shadow(0 12px 28px rgba(139,61,247,.35))}
+  h1{font-family:var(--display);font-weight:700;font-size:clamp(2.2rem,8vw,3rem);margin:0;letter-spacing:-.02em}
+  .tagline{color:var(--muted);font-size:1.1rem;max-width:30ch;margin:0;text-wrap:balance}
+  .badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:2px}
+  .badge{font-size:.78rem;font-weight:600;color:var(--accent-2);background:var(--accent-soft);
+    border:1px solid var(--line);padding:5px 11px;border-radius:999px}
+  .cta{display:inline-flex;align-items:center;gap:10px;margin-top:6px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;
+    font-family:var(--display);font-weight:700;font-size:1.15rem;text-decoration:none;
+    padding:15px 30px;border-radius:16px;box-shadow:0 10px 24px rgba(139,61,247,.4)}
+  .cta:active{transform:translateY(1px)}
+  .cta svg{width:22px;height:22px}
+  .fineprint{color:var(--muted);font-size:.85rem;margin-top:2px}
+  section{background:var(--surface);border:1px solid var(--line);border-radius:20px;
+    padding:26px 24px;margin-top:28px}
+  h2{font-family:var(--display);font-weight:700;font-size:1.25rem;margin:0 0 16px;letter-spacing:-.01em}
+  ol.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px;counter-reset:s}
+  ol.steps li{display:flex;gap:14px;align-items:flex-start;counter-increment:s}
+  ol.steps li::before{content:counter(s);flex:0 0 auto;width:30px;height:30px;border-radius:50%;
+    background:var(--accent-soft);color:var(--accent-2);font-family:var(--display);font-weight:700;
+    display:grid;place-items:center;font-size:.95rem;border:1px solid var(--line)}
+  ol.steps .t{font-weight:600}
+  ol.steps .d{color:var(--muted);font-size:.92rem;margin-top:2px}
+  .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .feat .card{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:16px}
+  .feat h3{margin:0 0 4px;font-size:1rem;font-family:var(--display)}
+  .feat p{margin:0;color:var(--muted);font-size:.88rem}
+  .note{border-left:3px solid var(--accent);background:var(--accent-soft);
+    border-radius:0 14px 14px 0;padding:16px 18px;margin-top:28px}
+  .note p{margin:0;font-size:.92rem}
+  .note strong{color:var(--accent-2)}
+  code{font-family:var(--mono);font-size:.85em;background:var(--accent-soft);
+    padding:2px 6px;border-radius:6px;word-break:break-all}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:40px}
+  footer a{color:var(--accent-2)}
+  @media (max-width:440px){.feat{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <svg class="icon" viewBox="0 0 108 108" aria-label="PurpleSign">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#b56bff"/><stop offset="1" stop-color="#581cb4"/>
+      </linearGradient></defs>
+      <rect x="4" y="4" width="100" height="100" rx="24" fill="url(#g)"/>
+      <path d="M26 72 Q38 56 50 66 T74 60" fill="none" stroke="#fff" stroke-width="7"
+        stroke-linecap="round" stroke-linejoin="round"/>
+      <g transform="rotate(42 72 62)">
+        <rect x="66" y="26" width="12" height="40" rx="3" fill="#fff"/>
+        <rect x="66" y="31" width="12" height="4" fill="#cba6ff"/>
+        <path d="M66 66 L78 66 L72 78 Z" fill="#fff"/>
+        <path d="M70 73 L74 73 L72 78 Z" fill="#581cb4"/>
+      </g>
+    </svg>
+    <h1>PurpleSign</h1>
+    <p class="tagline">Подписывай и ставь IPA прямо с iPhone — своим Apple ID, без компьютера.</p>
+    <div class="badges">
+      <span class="badge">iOS 17+</span>
+      <span class="badge">Без джейлбрейка</span>
+      <span class="badge">Свой Apple ID</span>
+    </div>
+    <a class="cta" href="itms-services://?action=download-manifest&url=https://nekrasovl101-ship-it.github.io/purplesign/manifest.plist">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+        stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+      Установить
+    </a>
+    <p class="fineprint">Открой эту страницу в Safari на iPhone и нажми «Установить».</p>
+  </div>
+
+  <section>
+    <h2>Как установить</h2>
+    <ol class="steps">
+      <li><div><div class="t">Нажми «Установить»</div><div class="d">iOS спросит разрешение — подтверди. Иконка PurpleSign появится на домашнем экране.</div></div></li>
+      <li><div><div class="t">Доверься разработчику</div><div class="d">Настройки → Основные → VPN и управление устройством → выбери свой профиль → «Доверять».</div></div></li>
+      <li><div><div class="t">Войди своим Apple ID</div><div class="d">Открой PurpleSign → Настройки → Apple ID. Приложение само получит бесплатный сертификат.</div></div></li>
+      <li><div><div class="t">Ставь что хочешь</div><div class="d">Добавляй IPA или источники — PurpleSign подпишет их твоим аккаунтом и установит.</div></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Что умеет</h2>
+    <div class="feat">
+      <div class="card"><h3>Подпись на лету</h3><p>Сертификат, Apple ID или уже подписанный IPA — на выбор.</p></div>
+      <div class="card"><h3>Магазин источников</h3><p>Добавляй репозитории в формате AltStore / SideStore.</p></div>
+      <div class="card"><h3>Три способа ставить</h3><p>Через iOS, LocalDevVPN или сохранить готовый файл.</p></div>
+      <div class="card"><h3>Контроль сертов</h3><p>Видно срок и отзыв — приложение не слетит молча.</p></div>
+    </div>
+  </section>
+
+  <div class="note">
+    <p><strong>Важно:</strong> PurpleSign работает по модели SideStore — каждый ставит его <strong>своим</strong> Apple ID. Кнопка «Установить» встанет сразу только на телефоны, зарегистрированные в сертификате; остальным нужно войти своим аккаунтом внутри приложения. Это честный путь без чужих сертификатов, которые Apple отзывает.</p>
+  </div>
+
+  <footer>
+    Bundle ID: <code>com.levanekrasov.purplesign</code><br>
+    Сделано Левой · PurpleSign
+  </footer>
+</div>
+</body>
+</html>
